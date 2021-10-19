@@ -568,7 +568,14 @@ namespace MudBlazor
                 scrollValue = _allTabsSize - _toolbarContentSize - 96;
             }
 
-            _scrollPosition = scrollValue;
+            if (_allTabsSize - scrollValue < _toolbarContentSize)
+            {
+                _scrollPosition = _allTabsSize - _toolbarContentSize;
+            }
+            else
+            {
+                _scrollPosition = scrollValue;
+            }
 
             SetScrollabilityStates();
         }
