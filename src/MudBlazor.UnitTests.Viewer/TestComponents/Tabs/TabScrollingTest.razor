@@ -1,12 +1,17 @@
-﻿<h3>TabScrollingTest</h3>
-    <MudTabs Elevation="4" Rounded="true" Color="@Color.Secondary">
-            <MudTabPanel Text="OneOneOneOne">SOME OneOneOneOne</MudTabPanel>
-            <MudTabPanel Text="TwoTwoTwoTwo">SOME TwoTwoTwoTwo</MudTabPanel>
-            <MudTabPanel Text="ThreeThreeThreeThree">SOME ThreeThreeThreeThree</MudTabPanel>
-            <MudTabPanel Text="FourFour">SOME FourFour</MudTabPanel>
-            <MudTabPanel Text="FiveFive">SOME FiveFive</MudTabPanel>
-            <MudTabPanel Text="SixSixSixSix">SOME SixSixSixSix</MudTabPanel>
-        </MudTabs>
-@code {
+﻿@using MudBlazor.UnitTests.TestComponents.Tabs.ScrollableTabsTestDialog
+@inject IDialogService DialogService
 
+
+<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
+    Open Simple Dialog
+</MudButton>
+
+@code {
+        public static string __description__ = "Scrolling when the page is too small shouldn't leave any space";
+
+            private void OpenDialog()
+    {
+        DialogService.Show<DialogTabUsageExample_Dialog>("Simple Dialog", new DialogOptions() { MaxWidth = MaxWidth.Medium, FullWidth = true });
+            
+    }
 }

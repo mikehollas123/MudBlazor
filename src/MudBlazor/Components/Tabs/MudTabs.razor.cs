@@ -220,7 +220,7 @@ namespace MudBlazor
 
         protected override void OnParametersSet()
         {
-            Rerender();
+            //Rerender();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -569,13 +569,9 @@ namespace MudBlazor
             }
 
             if (_allTabsSize - scrollValue < _toolbarContentSize)
-            {
-                _scrollPosition = _allTabsSize - _toolbarContentSize;
-            }
+                _scrollPosition = _showScrollButtons ? _allTabsSize - _toolbarContentSize + 96 : _allTabsSize - _toolbarContentSize;
             else
-            {
                 _scrollPosition = scrollValue;
-            }
 
             SetScrollabilityStates();
         }
